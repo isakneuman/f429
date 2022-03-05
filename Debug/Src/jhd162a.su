@@ -1,0 +1,8 @@
+jhd162a.c:19:6:hc_sr04_print	16	static
+jhd162a.c:29:6:lcd_print_simple	16	static
+jhd162a.c:38:6:lcd_print	16	static
+jhd162a.c:70:6:LCD_SendString	16	static
+jhd162a.c:77:6:lcd_send	24	static
+jhd162a.c:91:6:lcd_cmd	16	static
+jhd162a.c:96:6:lcd_data	16	static
+jhd162a.c:101:6:init_lcd1602	8	static

@@ -1,0 +1,62 @@
+
+void NAND_Init(void)
+{
+    GPIO_InitTypeDef GPIO_InitStructure;
+    FMC_NANDInitTypeDef FSMC_NANDInitStructure;
+    FMC_NAND_PCCARDTimingInitTypeDef p;
+
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD | RCC_AHB1Periph_GPIOE, ENABLE);
+    RCC_AHB3PeriphClockCmd(RCC_AHB3Periph_FMC, ENABLE);
+
+    GPIO_StructInit(&GPIO_InitStructure);
+    
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 |
+    GPIO_Pin_1 | GPIO_Pin_4 | GPIO_Pin_5 |
+    GPIO_Pin_6 | GPIO_Pin_11 | GPIO_Pin_12 |
+    GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
+    
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
+
+    GPIO_PinAFConfig(GPIOD, GPIO_PinSource0, GPIO_AF_FMC);
+    GPIO_PinAFConfig(GPIOD, GPIO_PinSource1, GPIO_AF_FMC);
+    GPIO_PinAFConfig(GPIOD, GPIO_PinSource4, GPIO_AF_FMC);
+    GPIO_PinAFConfig(GPIOD, GPIO_PinSource5, GPIO_AF_FMC);
+    GPIO_PinAFConfig(GPIOD, GPIO_PinSource6, GPIO_AF_FMC);
+    GPIO_PinAFConfig(GPIOD, GPIO_PinSource11, GPIO_AF_FMC);
+    GPIO_PinAFConfig(GPIOD, GPIO_PinSource12, GPIO_AF_FMC);
+    GPIO_PinAFConfig(GPIOD, GPIO_PinSource13, GPIO_AF_FMC);
+    GPIO_PinAFConfig(GPIOD, GPIO_PinSource14, GPIO_AF_FMC);
+    GPIO_PinAFConfig(GPIOD, GPIO_PinSource15, GPIO_AF_FMC);
+
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10;
+    GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+    GPIO_Init(GPIOE, &GPIO_InitStructure);
+
+    GPIO_PinAFConfig(GPIOE, GPIO_PinSource7, GPIO_AF_FMC);
+    GPIO_PinAFConfig(GPIOE, GPIO_PinSource8, GPIO_AF_FMC);
+    GPIO_PinAFConfig(GPIOE, GPIO_PinSource9, GPIO_AF_FMC);
+    GPIO_PinAFConfig(GPIOE, GPIO_PinSource10, GPIO_AF_FMC);
+
+
+    FSMC_NANDInitStructure.FMC_AttributeSpaceTimingStruct = &p;
+    FSMC_NANDInitStructure.FMC_CommonSpaceTimingStruct = &p;
+
+    FMC_NANDStructInit(&FSMC_NANDInitStructure);
+
+    p.FMC_SetupTime = 0;
+    p.FMC_WaitSetupTime = 2;
+    p.FMC_HoldSetupTime = 1;
+    p.FMC_HiZSetupTime = 4;
+
+    FSMC_NANDInitStructure.FMC_Bank = FMC_Bank2_NAND;
+    FSMC_NANDInitStructure.FMC_Waitfeature = FMC_Waitfeature_Enable;
+    FSMC_NANDInitStructure.FMC_MemoryDataWidth = FMC_MemoryDataWidth_8b;
+    FSMC_NANDInitStructure.FMC_ECC = FMC_ECC_Disable;
+    FSMC_NANDInitStructure.FMC_TCLRSetupTime = 0;
+    FSMC_NANDInitStructure.FMC_TARSetupTime = 0;
+    FMC_NANDInit(&FSMC_NANDInitStructure);
+
+    FMC_NANDCmd(FMC_Bank2_NAND, ENABLE);
+}

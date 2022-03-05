@@ -1,0 +1,13 @@
+nandflash.c:39:6:FMC_NAND_Init	72	static
+nandflash.c:127:9:FMC_NAND_ReadID	24	static
+nandflash.c:144:9:NAND_ReadyWait	16	static
+nandflash.c:171:10:FSMC_NAND_WriteSmallPage	48	static
+nandflash.c:235:10:FSMC_NAND_ReadSmallPage	48	static
+nandflash.c:295:10:FSMC_NAND_WriteSpareArea	48	static
+nandflash.c:359:10:FSMC_NAND_ReadSpareArea	48	static
+nandflash.c:413:10:FSMC_NAND_EraseBlock	16	static
+nandflash.c:437:10:FSMC_NAND_Reset	4	static
+nandflash.c:455:10:FSMC_NAND_GetStatus	16	static
+nandflash.c:487:10:FSMC_NAND_ReadStatus	16	static
+nandflash.c:521:10:FSMC_NAND_AddressIncrement	24	static
+nandflash.c:555:6:FMC_NAND_Test	24	static

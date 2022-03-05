@@ -1,0 +1,2 @@
+gpio_periph.c:4:6:init_i2c1_gpio	16	static
+gpio_periph.c:21:6:init_hc_sr04_gpio	16	static

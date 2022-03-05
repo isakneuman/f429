@@ -1,0 +1,3 @@
+i2c_periph.c:5:6:init_i2c1	8	static
+i2c_periph.c:21:6:i2c1_start	16	static
+i2c_periph.c:34:6:i2c1_send	16	static

@@ -1,0 +1,2 @@
+dac.c:5:6:init_speaker	16	static
+dac.c:21:6:sinewave_sound	16	static

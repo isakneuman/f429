@@ -1,0 +1,12 @@
+core_cm4.h:1688:22:__NVIC_EnableIRQ	16	static
+hc_sr04.c:17:13:TIM3_start	4	static
+hc_sr04.c:22:13:TIM3_stop	4	static
+hc_sr04.c:27:13:TIM1_start	4	static
+hc_sr04.c:32:13:TIM1_stop	4	static
+hc_sr04.c:38:6:init_hc_sr04	8	static
+hc_sr04.c:45:6:init_trig	4	static
+hc_sr04.c:58:6:init_echo	8	static
+hc_sr04.c:85:6:TIM3_IRQHandler	4	static
+hc_sr04.c:130:10:get_measured_state	8	static
+hc_sr04.c:148:10:get_distance_sm	4	static
+hc_sr04.c:154:6:init_timers_hc_sr04	8	static

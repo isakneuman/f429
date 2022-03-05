@@ -1,0 +1,5 @@
+terminal.c:3:5:__io_putchar	16	static
+terminal.c:9:6:init_uart1	40	static
+terminal.c:32:6:read_byte	16	static
+terminal.c:38:6:write_byte	16	static
+terminal.c:44:6:printf_new	16	static
